@@ -1,0 +1,8 @@
+# configuration file for building snapshots and releases with jitpack.io
+jdk:
+  - openjdk17
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=neolife_1_0_0.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.neolifesdk -DartifactId=NeoLife -Dversion=1.0.0 -Dpackaging=aar -DgeneratePom=true
